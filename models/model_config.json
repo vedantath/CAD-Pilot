@@ -1,0 +1,24 @@
+{
+  "models": {
+    "code_gen": {
+      "model": "codellama:13b",
+      "description": "Primary AutoLISP and Python script generation, swap to deepseek-coder-v2 later",
+      "max_tokens": 2048,
+      "temperature": 0.2
+    },
+    "embeddings": {
+      "model": "nomic-embed-text",
+      "description": "RAG embeddings for standards and few-shot examples"
+    },
+    "fast": {
+      "model": "codellama:13b",
+      "description": "Quick queries — same model for now, swap to 7b later"
+    }
+  },
+  "routing": {
+    "simple_commands": "fast",
+    "script_generation": "code_gen",
+    "planning": "code_gen"
+  },
+  "ollama_host": "http://localhost:11434"
+}
